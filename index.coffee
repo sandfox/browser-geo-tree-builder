@@ -40,8 +40,8 @@ headerHandler = (record, index)->
 	#console.log 'header--', record
 
 	#lets search for rows automagically
-	if record.indexOf 'latitude' isnt -1 then columnLayout.x = record.indexOf 'latitude'
-	if record.indexOf 'longitude' isnt -1 then columnLayout.y = record.indexOf 'longitude'
+	if record.indexOf 'latitude' isnt -1 then columnLayout.y = record.indexOf 'latitude'
+	if record.indexOf 'longitude' isnt -1 then columnLayout.x = record.indexOf 'longitude'
 
 	#only store things which have a header row
 	
@@ -67,6 +67,7 @@ recordHandler = (record, index)->
 		x: record[columnLayout.x]
 		y: record[columnLayout.y]
 		id: index
+		#store: tmpRecord
 	null
 
 endHandler = (count)->
