@@ -1,6 +1,6 @@
 {
   "name": "csv-2-geo-json",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A thing to convert CSV with lat/lon into kdtree + data files",
   "main": "lib/app.js",
   "dependencies": {
@@ -26,6 +26,8 @@
     "csv",
     "kdtree"
   ],
-  "author": "sandfox",
+  "bin": { "csv2GeoJSON": "./bin/csv2GeoJSON" },
+  "engines": { "node": "*" }
+  "author": "sandfox <james.butler@sandfox.co.uk>",
   "license": "NA"
 }
