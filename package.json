@@ -1,0 +1,31 @@
+{
+  "name": "csv-2-geo-json",
+  "version": "0.0.0",
+  "description": "A thing to convert CSV with lat/lon into kdtree + data files",
+  "main": "lib/app.js",
+  "dependencies": {
+    "csv": "0.2.*",
+    "fmt": "0.4.*",
+    "optimist": "0.3.*",
+    "lingo": "0.0.*"
+  },
+  "devDependencies": {
+    "coffee-script": "1.4.*"
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandfox/browser-geo-tree-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/sandfox/browser-geo-tree-builder/issues"
+    },
+  "keywords": [
+    "csv",
+    "kdtree"
+  ],
+  "author": "sandfox",
+  "license": "NA"
+}
