@@ -1,6 +1,6 @@
 {
   "name": "csv-2-geo-json",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A thing to convert CSV with lat/lon into kdtree + data files",
   "main": "lib/app.js",
   "dependencies": {
