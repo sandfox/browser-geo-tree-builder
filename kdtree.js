@@ -142,7 +142,7 @@ var  K = 2; // I only require a 2d k-d tree & currently I'm too lazy to calculat
     }
 
     var axis = depth % K;
-    var currNodeDistanceToDesiredCoord = getHaversineDistance(searchCoord.x, searchCoord.y, currNode.point.x, currNode.point.y);
+    var currNodeDistanceToDesiredCoord = getHaversineDistanceBetterWrapper(searchCoord.x, searchCoord.y, currNode.point.x, currNode.point.y);
     var bestSeen = {node:currNode, distance: currNodeDistanceToDesiredCoord};
     insertResult_(results, bestSeen, maxResults);
     var searchNodeSplittingCoord = axis == AXIS_X ? searchCoord.x    : searchCoord.y;
@@ -180,7 +180,7 @@ var  K = 2; // I only require a 2d k-d tree & currently I'm too lazy to calculat
         }
       }
 
-      var squaredDist = getHaversineDistance(searchCoord.x, searchCoord.y, toX, toY);
+      var squaredDist = getHaversineDistanceBetterWrapper(searchCoord.x, searchCoord.y, toX, toY);
       if (squaredDist <= results[results.length - 1].distance) {
         // right side could contain a better node, need to check.
         this.getNearestNeighbours_(oppositeChild, searchCoord, depth + 1, results, maxResults, opt_consideredPoints);
@@ -233,6 +233,29 @@ var  K = 2; // I only require a 2d k-d tree & currently I'm too lazy to calculat
     return distance;
 
   }
+
+  function getHaversineDistanceBetterWrapper(x1, y1, x2, y2){
+    return getHaversineDistanceBetter({latitude: y1,longitude: x1}, {latitude: y2,longitude: x2});
+  }
+
+  function getHaversineDistanceBetter(a, b) {
+        var lat1 = a.latitude,
+        lon1 = a.longitude,
+        lat2 = b.latitude,
+        lon2 = b.longitude;
+        var rad = Math.PI/180;
+
+        var dLat = (lat2-lat1)*rad;
+        var dLon = (lon2-lon1)*rad;
+        var lat1 = lat1*rad;
+        var lat2 = lat2*rad;
+
+        var x = Math.sin(dLat/2);
+        var y = Math.sin(dLon/2);
+
+        var a = x*x + y*y * Math.cos(lat1) * Math.cos(lat2); 
+        return Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      }
 
 
 
