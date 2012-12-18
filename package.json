@@ -27,7 +27,7 @@
     "kdtree"
   ],
   "bin": { "csv2GeoJSON": "./bin/csv2GeoJSON" },
-  "engines": { "node": "*" }
+  "engines": { "node": "*" },
   "author": "sandfox <james.butler@sandfox.co.uk>",
   "license": "NA"
 }
